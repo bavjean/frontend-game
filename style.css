@@ -1,3 +1,8 @@
+body {
+	background-color: black;
+	color: white;
+}
+
 main {
 	display: flex;
 	flex-wrap: wrap;
@@ -11,18 +16,18 @@ div {
 	margin: 5px;
 }
 
-.green {
-	background-color: green;
+#green {
+	background-color: darkgreen;
 }
 
-.red {
-	background-color: red;
+#red {
+	background-color: darkred;
 }
 
-.yellow {
-	background-color: yellow;
+#yellow {
+	background-color: #DAA520;
 }
 
-.blue {
-	background-color: blue;
+#blue {
+	background-color: darkblue;
 }
