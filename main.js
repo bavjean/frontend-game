@@ -42,7 +42,7 @@ blue.addEventListener('click', evt => {
 startButton.addEventListener('click', play)
 
 function flashGreen() {
-	green.style.backgroundColor = "green"
+	green.style.backgroundColor = '#00b200'
 }
 
 function flashRed() {
