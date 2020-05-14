@@ -2,7 +2,7 @@ let computerOrder = []
 let playerOrder = []
 let round
 let light = 0
-let flashes
+let computerFlashes
 
 let roundNumber = document.querySelector('.roundNumber')
 const green = document.querySelector('#green')
@@ -75,12 +75,12 @@ function play() {
 		computerOrder.push(Math.floor(Math.random() * 4) + 1);
 	}
 
-	flashes = setInterval(computerTurn, 700)
+	computerFlashes = setInterval(computerTurn, 700)
 }
 
 function computerTurn() {
 	if (light === round) {
-		clearInterval(flashes)
+		clearInterval(computerFlashes)
 		resetColor()
 	} else {
 		resetColor()
@@ -96,7 +96,9 @@ function computerTurn() {
 
 function checker() {
 	if (playerOrder[playerOrder.length - 1] !== computerOrder[playerOrder.length-1]) {
-		alert('Sorry! Try again')
+		alert(`You made it to round ${round}! Start a new game to try again`)
+		playerOrder = []
+		computerOrder = []
 	}
 
 	if (round === playerOrder.length && playerOrder[playerOrder.length - 1] === computerOrder[playerOrder.length-1]) {
@@ -104,6 +106,6 @@ function checker() {
 		playerOrder = []
 		light = 0
 		roundNumber.innerHTML = round
-		flashes = setInterval(computerTurn, 700)
+		computerFlashes = setInterval(computerTurn, 700)
 	}
 }
