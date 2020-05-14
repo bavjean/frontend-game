@@ -10,7 +10,7 @@ main {
 	display: flex;
 	flex-wrap: wrap;
 	width: 450px;
-	margin: 25px auto;
+	margin: 50px auto;
 }
 
 div {

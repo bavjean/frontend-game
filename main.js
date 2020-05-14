@@ -13,48 +13,56 @@ const startButton = document.querySelector('#start-button')
 
 green.addEventListener('click', evt => {
 	playerOrder.push(1)
-	flashGreen()
 	checker()
+	flashGreen()
 	setTimeout(resetColor, 200)
 })
 
 red.addEventListener('click', evt => {
 	playerOrder.push(2)
-	flashRed()
 	checker()
+	flashRed()
 	setTimeout(resetColor, 200)
 })
 
 yellow.addEventListener('click', evt => {
 	playerOrder.push(3)
-	flashYellow()
 	checker()
+	flashYellow()
 	setTimeout(resetColor, 200)
 })
 
 blue.addEventListener('click', evt => {
 	playerOrder.push(4)
-	flashBlue()
 	checker()
+	flashBlue()
 	setTimeout(resetColor, 200)
 })
 
 startButton.addEventListener('click', play)
 
 function flashGreen() {
+	let beep = document.querySelector('#green-beep')
 	green.style.backgroundColor = '#00b200'
+	beep.play()
 }
 
 function flashRed() {
+	let beep = document.querySelector('#red-beep')
 	red.style.backgroundColor = "red"
+	beep.play()
 }
 
 function flashYellow() {
+	let beep = document.querySelector('#yellow-beep')
 	yellow.style.backgroundColor = "yellow"
+	beep.play()
 }
 
 function flashBlue() {
+	let beep = document.querySelector('#blue-beep')
 	blue.style.backgroundColor = "blue"
+	beep.play()
 }
 
 function resetColor() {
@@ -90,7 +98,7 @@ function computerTurn() {
 		if (computerOrder[light] === 3) flashYellow()
 		if (computerOrder[light] === 4) flashBlue()
 		light++
-		}, 500)
+		}, 600)
 	}
 }
 
