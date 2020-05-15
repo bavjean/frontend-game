@@ -1,7 +1,7 @@
 let computerOrder = []
 let playerOrder = []
 let round
-let light = 0
+let i = 0
 let computerFlashes
 
 let roundNumber = document.querySelector('.roundNumber')
@@ -79,7 +79,7 @@ function play() {
 	i = 0
 	roundNumber.innerHTML = round
 
-	for (let i = 0; i < 100; i++) {
+	for (let j = 0; j < 100; j++) {
 		computerOrder.push(Math.floor(Math.random() * 4) + 1);
 	}
 
