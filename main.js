@@ -11,67 +11,78 @@ const yellow = document.querySelector('#yellow')
 const blue = document.querySelector('#blue')
 const startButton = document.querySelector('#start-button')
 
+// Each click will add to player choice array, flash the color, 
+// and compare it with the computers order
 green.addEventListener('click', evt => {
 	playerOrder.push(1)
 	checker()
 	flashGreen()
-	setTimeout(resetColor, 200)
+	// setTimeout(resetColor, 200)
 })
 
 red.addEventListener('click', evt => {
 	playerOrder.push(2)
 	checker()
 	flashRed()
-	setTimeout(resetColor, 200)
+	// setTimeout(resetColor, 200)
 })
 
 yellow.addEventListener('click', evt => {
 	playerOrder.push(3)
 	checker()
 	flashYellow()
-	setTimeout(resetColor, 200)
+	// setTimeout(resetColor, 200)
 })
 
 blue.addEventListener('click', evt => {
 	playerOrder.push(4)
 	checker()
 	flashBlue()
-	setTimeout(resetColor, 200)
+	// setTimeout(resetColor, 200)
 })
 
 startButton.addEventListener('click', play)
 
+// Flash colors and play sounds
 function flashGreen() {
 	let beep = document.querySelector('#green-beep')
 	green.style.backgroundColor = '#00b200'
+	setTimeout(()=>{green.style.backgroundColor = "darkgreen"}, 200)
 	beep.play()
+	// setTimeout(()=>{green.style.backgroundColor = "darkgreen"}, 200)
 }
 
 function flashRed() {
 	let beep = document.querySelector('#red-beep')
 	red.style.backgroundColor = "red"
+	setTimeout(()=>{red.style.backgroundColor = "darkred"}, 200)
 	beep.play()
 }
 
 function flashYellow() {
 	let beep = document.querySelector('#yellow-beep')
 	yellow.style.backgroundColor = "yellow"
+	setTimeout(()=>{yellow.style.backgroundColor = "#DAA520"}, 200)
 	beep.play()
 }
 
 function flashBlue() {
 	let beep = document.querySelector('#blue-beep')
 	blue.style.backgroundColor = "blue"
+	setTimeout(()=>{blue.style.backgroundColor = "darkblue"}, 200)
 	beep.play()
 }
 
-function resetColor() {
-	green.style.backgroundColor = "darkgreen"
-	red.style.backgroundColor = "darkred"
-	yellow.style.backgroundColor = "#DAA520"
-	blue.style.backgroundColor = "darkblue"
-}
 
+
+// function resetColor() {
+// 	green.style.backgroundColor = "darkgreen"
+// 	red.style.backgroundColor = "darkred"
+// 	yellow.style.backgroundColor = "#DAA520"
+// 	blue.style.backgroundColor = "darkblue"
+// }
+
+// Starts game logic, fills computer choices
 function play() {
 	computerOrder = []
 	playerOrder = []
@@ -82,10 +93,11 @@ function play() {
 	for (let j = 0; j < 100; j++) {
 		computerOrder.push(Math.floor(Math.random() * 4) + 1);
 	}
-
+// Starts flashing for computers turn
 	computerFlashes = setInterval(computerTurn, 700)
 }
 
+// Will flash colors that need to be repeated, # of flashes will equal the current round
 function computerTurn() {
 	if (i === round) {
 		clearInterval(computerFlashes)
@@ -102,13 +114,15 @@ function computerTurn() {
 	}
 }
 
+// Compares each click with equivalent index of computers choice, once all selections
+// have been made it will restart computers turn
 function checker() {
 	if (playerOrder[playerOrder.length - 1] !== computerOrder[playerOrder.length-1]) {
 		alert(`You made it to round ${round}! Start a new game to try again`)
 		playerOrder = []
 		computerOrder = []
 	}
-
+	// Updates round counter, and sends back into computers turn to show order again
 	if (round === playerOrder.length && playerOrder[playerOrder.length - 1] === computerOrder[playerOrder.length-1]) {
 		round++
 		playerOrder = []
