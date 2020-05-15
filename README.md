@@ -6,6 +6,12 @@ The program is trying to mimic the electronic Simon toy. It will choose a random
 
 [Load the page](https://bavjean.github.io/frontend-game/) and click the Start button to begin. Recreate the sequence of lights chosen by the computer by clicking on each one in order.
 
+## Installing
+
+1. Fork and clone the repository
+2. Navigate to new directory
+3. Open in text editor
+
 ## Built With
 
 1. HTML
