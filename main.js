@@ -76,7 +76,7 @@ function play() {
 	computerOrder = []
 	playerOrder = []
 	round = 1
-	light = 0
+	i = 0
 	roundNumber.innerHTML = round
 
 	for (let i = 0; i < 100; i++) {
@@ -87,17 +87,17 @@ function play() {
 }
 
 function computerTurn() {
-	if (light === round) {
+	if (i === round) {
 		clearInterval(computerFlashes)
 		resetColor()
 	} else {
 		resetColor()
 		setTimeout(() => {
-		if (computerOrder[light] === 1) flashGreen()
-		if (computerOrder[light] === 2) flashRed()
-		if (computerOrder[light] === 3) flashYellow()
-		if (computerOrder[light] === 4) flashBlue()
-		light++
+		if (computerOrder[i] === 1) flashGreen()
+		if (computerOrder[i] === 2) flashRed()
+		if (computerOrder[i] === 3) flashYellow()
+		if (computerOrder[i] === 4) flashBlue()
+		i++
 		}, 600)
 	}
 }
@@ -112,7 +112,7 @@ function checker() {
 	if (round === playerOrder.length && playerOrder[playerOrder.length - 1] === computerOrder[playerOrder.length-1]) {
 		round++
 		playerOrder = []
-		light = 0
+		i = 0
 		roundNumber.innerHTML = round
 		computerFlashes = setInterval(computerTurn, 700)
 	}
