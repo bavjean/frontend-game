@@ -32,24 +32,41 @@ h3 {
 	font-weight: 400;
 }
 
-#green {
+.green {
 	background-color: darkgreen;
 	border-top-left-radius: 100%;
 }
 
-#red {
+.highlightgreen {
+	background-color: #00b200;
+
+}
+
+.red {
 	background-color: darkred;
 	border-top-right-radius: 100%;
 }
 
-#yellow {
+.highlightred {
+	background-color: red;
+}
+
+.yellow {
 	background-color: #DAA520;
 	border-bottom-left-radius: 100%;
 }
 
-#blue {
+.highlightyellow {
+	background-color: yellow;
+}
+
+.blue {
 	background-color: darkblue;
 	border-bottom-right-radius: 100%;
+}
+
+.highlightblue {
+	background-color: blue;
 }
 
 #start-button {

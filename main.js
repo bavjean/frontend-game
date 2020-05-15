@@ -1,14 +1,14 @@
 let computerOrder = []
 let playerOrder = []
-let round
+let round = 0
 let i = 0
 let computerFlashes
 
 let roundNumber = document.querySelector('.roundNumber')
-const green = document.querySelector('#green')
-const red = document.querySelector('#red')
-const yellow = document.querySelector('#yellow')
-const blue = document.querySelector('#blue')
+const green = document.querySelector('.green')
+const red = document.querySelector('.red')
+const yellow = document.querySelector('.yellow')
+const blue = document.querySelector('.blue')
 const startButton = document.querySelector('#start-button')
 
 // Each click will add to player choice array, flash the color, 
@@ -17,28 +17,24 @@ green.addEventListener('click', evt => {
 	playerOrder.push(1)
 	checker()
 	flashGreen()
-	// setTimeout(resetColor, 200)
 })
 
 red.addEventListener('click', evt => {
 	playerOrder.push(2)
 	checker()
 	flashRed()
-	// setTimeout(resetColor, 200)
 })
 
 yellow.addEventListener('click', evt => {
 	playerOrder.push(3)
 	checker()
 	flashYellow()
-	// setTimeout(resetColor, 200)
 })
 
 blue.addEventListener('click', evt => {
 	playerOrder.push(4)
 	checker()
 	flashBlue()
-	// setTimeout(resetColor, 200)
 })
 
 startButton.addEventListener('click', play)
@@ -49,7 +45,6 @@ function flashGreen() {
 	green.style.backgroundColor = '#00b200'
 	setTimeout(()=>{green.style.backgroundColor = "darkgreen"}, 200)
 	beep.play()
-	// setTimeout(()=>{green.style.backgroundColor = "darkgreen"}, 200)
 }
 
 function flashRed() {
@@ -61,19 +56,24 @@ function flashRed() {
 
 function flashYellow() {
 	let beep = document.querySelector('#yellow-beep')
+	beep.play()
 	yellow.style.backgroundColor = "yellow"
 	setTimeout(()=>{yellow.style.backgroundColor = "#DAA520"}, 200)
-	beep.play()
 }
 
 function flashBlue() {
 	let beep = document.querySelector('#blue-beep')
+	beep.play()
 	blue.style.backgroundColor = "blue"
 	setTimeout(()=>{blue.style.backgroundColor = "darkblue"}, 200)
+}
+// Trying to incorporate all flashes into single event
+function flash(evt) {
+	let beep = document.querySelector(`#${evt.target.className}-beep`)
+	evt.target.classList.add(`highlight${evt.target.className}`)
+	setTimeout(() => {evt.target.classList.remove(`${evt.target.classList[1]}`)}, 200)
 	beep.play()
 }
-
-
 
 // function resetColor() {
 // 	green.style.backgroundColor = "darkgreen"
@@ -101,9 +101,7 @@ function play() {
 function computerTurn() {
 	if (i === round) {
 		clearInterval(computerFlashes)
-		resetColor()
 	} else {
-		resetColor()
 		setTimeout(() => {
 		if (computerOrder[i] === 1) flashGreen()
 		if (computerOrder[i] === 2) flashRed()
