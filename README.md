@@ -22,8 +22,6 @@ The program is trying to mimic the electronic Simon toy. It will choose a random
 
 Feel free to submit a pull request to contribute. Any and all suggestions are appreciated.
 
-GitHub repo can be found [here](https://github.com/bavjean/frontend-game)
-
 ## Author
 
 Brian Avjean
